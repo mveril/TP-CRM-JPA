@@ -44,4 +44,14 @@ public class AppTest
     public void ListOfOrdersInClient(){
         System.out.println(DAOFactory.getCustomerDAO().findById(3).getOrders());
     }
+
+    @Test
+    public void findByCompanyName(){
+        System.out.println(DAOFactory.getCustomerDAO().findByCompanyName("Apple"));
+    }
+
+    @Test
+    public void findByState(){
+        System.out.println(DAOFactory.getCustomerDAO().findByState(ClientState.ACTIVE));
+    }
 }
