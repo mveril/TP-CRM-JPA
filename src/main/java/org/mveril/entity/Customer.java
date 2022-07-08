@@ -3,6 +3,8 @@ package org.mveril.entity;
 import org.mveril.enumeration.ClientState;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "client")
@@ -23,6 +25,11 @@ public class Customer {
     private String city;
     @Column(columnDefinition = "BIT")
     private ClientState state;
+
+
+    @OneToMany
+    @JoinColumn(name = "clientId")
+    private List<Order> orders = new ArrayList<>();
 
     public Customer() {
     }
@@ -126,6 +133,10 @@ public class Customer {
 
     public void setState(ClientState state) {
         this.state = state;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 
     @Override

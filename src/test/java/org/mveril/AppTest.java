@@ -39,4 +39,9 @@ public class AppTest
     public void ListOder(){
         System.out.println(DAOFactory.getOrderDAO().findAll());
     }
+
+    @Test
+    public void ListOfOrdersInClient(){
+        System.out.println(DAOFactory.getCustomerDAO().findById(3).getOrders());
+    }
 }
